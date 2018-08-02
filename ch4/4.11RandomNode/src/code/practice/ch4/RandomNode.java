@@ -11,21 +11,18 @@ public class RandomNode {
     }
     public TreeNode getRandomNode(){
         if (ROOT == null) return null;
-
         int n = ROOT.numOfChild;
         int rand = (new Random()).nextInt(n)+1;
-
         return helper(ROOT, rand);
     }
 
     private TreeNode helper(TreeNode root, int rand){
         if (root == null) return null;
         int left = root.left != null? root.left.numOfChild : 0;
-        int right = root.right != null? root.right.numOfChild : 0;
         if ((rand - left) == 1) return root;
         if (rand <= left)
             return helper(root.left, rand);
-        return helper(root.right, rand-left+1);
+        return helper(root.right, rand-left-1);
     }
 
     public void insert(int val){
@@ -79,7 +76,7 @@ public class RandomNode {
         if (replace != null){
             replace.left = node.left;
             replace.right = node.right;
-            replace.numOfChild = node.numOfChild-1;
+            replace.numOfChild = node.numOfChild;
         }
 
         if (parent != null){
@@ -99,11 +96,20 @@ public class RandomNode {
 
     private TreeNode findParentOf(TreeNode root, TreeNode node){
         if (root == null || root == node) return null;
-        if (root.left == node || root.right == node) return root;
+        if (root.left == node || root.right == node) {
+            root.numOfChild--;
+            return root;
+        }
         TreeNode left = findParentOf(root.left, node);
-        if (left != null)
+        if (left != null) {
+            root.numOfChild--;
             return left;
-        return findParentOf(root.right, node);
+        }
+        TreeNode right = findParentOf(root.right, node);
+        if (right != null){
+            root.numOfChild--;
+        }
+        return right;
     }
 
     private TreeNode findFirstLeafNode(TreeNode root){
