@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ch4/4.11 RandomNode.iml" filepath="$PROJECT_DIR$/ch4/4.11 RandomNode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch4/ch4/4_11_RandomNode.iml" filepath="$PROJECT_DIR$/ch4/ch4/4_11_RandomNode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ch4/Ch4.iml" filepath="$PROJECT_DIR$/Ch4/Ch4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CtCi-6th.iml" filepath="$PROJECT_DIR$/.idea/CtCi-6th.iml" />
+    </modules>
+  </component>
+</project>
